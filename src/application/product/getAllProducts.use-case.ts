@@ -5,8 +5,8 @@ type Dependencies = {
 };
 
 type Callbacks = {
-  onSuccess: (products: Product[] | null) => void;
-  onError: (error: Error) => void;
+  onSuccess?: (products: Product[] | null) => void;
+  onError?: (error: Error) => void;
 };
 
 type Args = {
@@ -14,13 +14,15 @@ type Args = {
 };
 
 export const getAllProducts = ({ productRepository }: Dependencies) => {
-  return async ({ pageOptions }: Args, { onSuccess, onError }: Callbacks) => {
+  return async ({ pageOptions }: Args, callbacks?: Callbacks) => {
     try {
       const products = await productRepository.findAll(pageOptions);
 
-      return onSuccess(products);
+      callbacks?.onSuccess?.(products);
+
+      return products;
     } catch (error) {
-      return onError(error as Error);
+      return callbacks?.onError?.(error as Error);
     }
   };
 };

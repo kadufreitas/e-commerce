@@ -1,7 +1,8 @@
 import Axios, { AxiosRequestConfig } from 'axios';
 import { extractAxiosError } from '../utils/extractError';
 
-const API_URL: string = process.env.REACT_APP_API_URL || '';
+const API_URL: string =
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
 
 const axios = Axios.create({
   baseURL: API_URL,

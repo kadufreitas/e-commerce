@@ -1,4 +1,4 @@
-import { PageOptions, Product, ProductRepository } from '@/src/domain';
+import { PageOptions, Product, ProductRepository } from '@/src/domain/product';
 
 type Dependencies = {
   productRepository: ProductRepository;

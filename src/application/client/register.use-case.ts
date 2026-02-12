@@ -1,5 +1,4 @@
-import { ClientRepository } from '../../domain/client/client.repository';
-import { Client, ClientInfo } from '../../domain/client/client.entity';
+import { Client, ClientInfo, ClientRepository } from '@/src/domain/client';
 
 type Dependencies = {
   clientRepository: ClientRepository;

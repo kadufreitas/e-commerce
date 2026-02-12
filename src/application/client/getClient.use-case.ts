@@ -1,5 +1,4 @@
-import { ClientRepository } from '../../domain/client/client.repository';
-import { Client } from '../../domain/client/client.entity';
+import { ClientRepository, Client } from '@/src/domain/client';
 
 type Dependencies = {
   clientRepository: ClientRepository;
@@ -17,7 +16,7 @@ type Args = {
 export const getClient = ({ clientRepository }: Dependencies) => {
   return async ({ token }: Args, { onSuccess, onError }: Callbacks) => {
     try {
-      const client = await clientRepository.findByToken(token);
+      const client = await clientRepository.getByToken(token);
 
       return onSuccess(client);
     } catch (error) {

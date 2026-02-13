@@ -1,3 +1,3 @@
-import Home from '@/src/view/Home';
+import { Home } from '@/src/view';
 
 export default Home;

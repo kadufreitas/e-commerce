@@ -1,5 +1,7 @@
 import { getAllProducts } from '@/src/container';
 import { Card, Button } from '@radix-ui/themes';
+import { Hero } from '../hero';
+import { TopSelling } from '../product/topselling';
 
 export default async function Home() {
   const products = await getAllProducts({
@@ -11,11 +13,10 @@ export default async function Home() {
   }
 
   return (
-    <div className="p-5">
-      <h1 className="text-center mb-5 text-2xl font-bold">
-        Welcome to Our E-commerce Store
-      </h1>
-      <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+    <>
+      <Hero />
+      <TopSelling />
+      {/* <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {products?.map((product) => (
           <Card
             key={product.id}
@@ -29,7 +30,7 @@ export default async function Home() {
             </div>
           </Card>
         ))}
-      </main>
-    </div>
+      </main> */}
+    </>
   );
 }

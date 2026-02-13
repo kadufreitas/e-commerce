@@ -1,0 +1,46 @@
+.footer {
+  margin-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.brand {
+  max-width: 320px;
+}
+
+.links {
+  display: flex;
+  gap: 80px;
+}
+
+.links div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.links a {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.bottom {
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 18px;
+  font-size: 12px;
+}

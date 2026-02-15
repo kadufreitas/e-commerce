@@ -12,9 +12,9 @@ export const productServices: ProductServices = {
     });
     return data.product;
   },
-  async findAll({ page, limit }) {
+  async findAll({ page, limit, filters }) {
     const { data } = await apiService.get('products', {
-      params: { page, limit },
+      params: { page, limit, ...filters },
     });
     return data.products;
   },

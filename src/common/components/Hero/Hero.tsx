@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './Hero.styles.module.css';
 
 export const Hero = () => {
@@ -31,10 +32,12 @@ export const Hero = () => {
         </div>
 
         <div className={styles.right}>
-          <img
-            src="https://placehold.co/600x400?text=Hero+Image"
+          <Image
+            src="https://placehold.co/600x400/png?text=Hero+Image"
             alt="Hero models"
             className={styles.image}
+            width={600}
+            height={400}
           />
         </div>
       </div>

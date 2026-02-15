@@ -9,6 +9,7 @@ export async function GET(req: NextRequest) {
   const name = searchParams.get('name');
   const page = Number(searchParams.get('page') ?? 1);
   const limit = Number(searchParams.get('limit') ?? 10);
+  const topSelling = searchParams.get('topSelling') === 'true';
 
   let filtered = products;
 
@@ -16,6 +17,17 @@ export async function GET(req: NextRequest) {
     filtered = products.filter((p) =>
       p.name.toLowerCase().includes(name.toLowerCase()),
     );
+  }
+
+  if (topSelling) {
+    filtered = products
+      .filter((p) => p.soldCount > 0)
+      .sort((a, b) => b.soldCount - a.soldCount)
+      .slice(0, 4);
+
+    return NextResponse.json({
+      products: filtered,
+    });
   }
 
   const start = (page - 1) * limit;

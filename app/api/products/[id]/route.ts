@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { products } from '@/src/mocks/products-db';
+import { products } from '@/lib/mocks/products-db';
 
 type Params = {
   params: { id: string };

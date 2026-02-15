@@ -1,3 +1,3 @@
-import { Home } from '@/src/view';
+import { Home } from '@/src/common/components';
 
 export default Home;

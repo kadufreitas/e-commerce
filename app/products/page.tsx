@@ -1,4 +1,4 @@
-import { getAllProducts } from '@/src/product';
+import { getAllProducts } from '@/src/product/actions';
 import { ProductsGrid } from '@/src/product/components';
 import { Box } from '@radix-ui/themes';
 

@@ -13,13 +13,13 @@ import {
 } from '@radix-ui/themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Product } from '../../product.model';
+import { Product } from '../product.model';
 
 interface ProductsDetailProps {
   product: Product | null;
 }
 
-export const ProductsDetail = async ({ product }: ProductsDetailProps) => {
+export const ProductsDetail = ({ product }: ProductsDetailProps) => {
   if (!product) return null;
 
   return (

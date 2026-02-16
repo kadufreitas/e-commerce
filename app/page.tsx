@@ -1,11 +1,14 @@
 import { Hero } from '@/src/common/components';
-import { TopSelling } from '@/src/product';
+import { getTopSellingProducts } from '@/src/product/actions';
+import { TopSelling } from '@/src/product/components';
 
 export default async function Home() {
+  const productsTopSelling = await getTopSellingProducts();
+
   return (
     <>
       <Hero />
-      <TopSelling />
+      <TopSelling products={productsTopSelling} />
     </>
   );
 }

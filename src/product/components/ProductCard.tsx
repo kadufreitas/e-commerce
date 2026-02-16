@@ -2,13 +2,13 @@ import { formatMoney } from '@/lib/utils/values-object/Money';
 import { Card, Inset, Strong, Text } from '@radix-ui/themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Product } from '../../product.model';
+import { Product } from '../product.model';
 
 interface ProductsCardProps {
   item: Product | null;
 }
 
-export const ProductsCard = async ({ item }: ProductsCardProps) => {
+export const ProductsCard = ({ item }: ProductsCardProps) => {
   if (!item) return null;
 
   return (

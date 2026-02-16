@@ -1,12 +1,14 @@
-import Link from 'next/link';
-import { getTopSellingProducts } from '../../actions/getTopSellingProducts';
-import { ProductsCard } from '../Card';
 import { Button, Flex, Grid, Heading, Section } from '@radix-ui/themes';
+import Link from 'next/link';
+import { Product } from '../product.model';
+import { ProductsCard } from './ProductCard';
 
-export const TopSelling = async () => {
-  const products = await getTopSellingProducts();
+interface TopSellingProps {
+  products: Product[] | null;
+}
 
-  if (!products) {
+export const TopSelling = ({ products }: TopSellingProps) => {
+  if (!products || products.length === 0) {
     return <div>Failed to load top selling products.</div>;
   }
 

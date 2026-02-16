@@ -1,5 +1,5 @@
-import { getProductById } from '@/src/product';
-import { ProductsDetail } from '@/src/product/components/Detail';
+import { getProductById } from '@/src/product/actions';
+import { ProductsDetail } from '@/src/product/components';
 
 export default async function ProductDetail({
   params,

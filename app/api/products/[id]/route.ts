@@ -7,7 +7,8 @@ type Params = {
 
 // GET /api/products/:id
 export async function GET(_: NextRequest, { params }: Params) {
-  const product = products.find((p) => p.id === params.id);
+  const { id } = await params;
+  const product = products.find((p) => p.id === id);
 
   if (!product) {
     return NextResponse.json({ message: 'Not found' }, { status: 404 });
@@ -18,8 +19,9 @@ export async function GET(_: NextRequest, { params }: Params) {
 
 // PUT /api/products/:id
 export async function PUT(req: NextRequest, { params }: Params) {
+  const { id } = await params;
   const body = await req.json();
-  const index = products.findIndex((p) => p.id === params.id);
+  const index = products.findIndex((p) => p.id === id);
 
   if (index === -1) {
     return NextResponse.json({ message: 'Not found' }, { status: 404 });
@@ -35,7 +37,8 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
 // DELETE /api/products/:id
 export async function DELETE(_: NextRequest, { params }: Params) {
-  const index = products.findIndex((p) => p.id === params.id);
+  const { id } = await params;
+  const index = products.findIndex((p) => p.id === id);
 
   if (index === -1) {
     return NextResponse.json({ message: 'Not found' }, { status: 404 });

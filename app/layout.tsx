@@ -1,4 +1,4 @@
-import { Theme } from '@radix-ui/themes';
+import { Container, Theme, ThemePanel } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -30,10 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Theme accentColor="purple" appearance="dark">
+        <Theme accentColor="purple" appearance="dark" radius="full">
           <Header />
-          {children}
+          <Container>{children}</Container>
           <Footer />
+          {/* <ThemePanel /> */}
         </Theme>
       </body>
     </html>

@@ -1,6 +1,7 @@
-import Image from 'next/image';
+import Link from 'next/link';
 import { getTopSellingProducts } from '../../actions/getTopSellingProducts';
-import styles from './TopSelling.styles.module.css';
+import { ProductsCard } from '../Card';
+import { Button, Flex, Grid, Heading, Section } from '@radix-ui/themes';
 
 export const TopSelling = async () => {
   const products = await getTopSellingProducts();
@@ -10,22 +11,21 @@ export const TopSelling = async () => {
   }
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>TOP SELLING</h2>
+    <Section py="3">
+      <Flex justify="between" align="baseline" mb="4">
+        <Heading size="3" weight="bold">
+          TOP SELLING
+        </Heading>
+        <Button asChild variant="outline">
+          <Link href="/products">View All</Link>
+        </Button>
+      </Flex>
 
-        <div className={styles.grid}>
-          {products.map((p) => (
-            <div key={p.id} className={styles.card}>
-              <Image src={p.img} alt={p.name} width={300} height={300} />
-              <h4>{p.name}</h4>
-              <span>{p.price}</span>
-            </div>
-          ))}
-        </div>
-
-        <button className={styles.viewAll}>View All</button>
-      </div>
-    </section>
+      <Grid columns={{ initial: '1', md: '4' }} gap="3" width="auto">
+        {products.map((p) => (
+          <ProductsCard item={p} key={p.id} />
+        ))}
+      </Grid>
+    </Section>
   );
 };

@@ -1,0 +1,1 @@
+export { ProductsDetail } from './Detail';

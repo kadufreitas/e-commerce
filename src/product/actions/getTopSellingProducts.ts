@@ -5,9 +5,7 @@ export const getTopSellingProducts = async (callbacks?: Callbacks) => {
   const { onSuccess, onError } = callbacks || {};
 
   try {
-    const products = await productServices.findAll({
-      filters: { topSelling: true },
-    });
+    const products = await productServices.getRecommendations('best-sellers');
 
     onSuccess?.(products);
 

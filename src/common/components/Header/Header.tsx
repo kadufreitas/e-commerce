@@ -1,38 +1,41 @@
 import { Container, Flex } from '@radix-ui/themes';
 import { NavigationMenu } from 'radix-ui';
 import styles from './Header.styles.module.css';
+import Link from 'next/link';
 
 export const Header = () => {
   return (
     <header className={styles.header}>
       <Container className={styles.container}>
         <Flex align="center" justify="between">
-          <div className={styles.logo}>E-SHOP</div>
+          <Link href="/" className={styles.logo}>
+            E-SHOP
+          </Link>
           {/* Navigation */}
           <NavigationMenu.Root className={styles.navRoot}>
             <NavigationMenu.List className={styles.navList}>
               <NavigationMenu.Item>
-                <NavigationMenu.Link className={styles.navLink}>
+                <Link href="/products" className={styles.navLink}>
                   Shop
-                </NavigationMenu.Link>
+                </Link>
               </NavigationMenu.Item>
 
               <NavigationMenu.Item>
-                <NavigationMenu.Link className={styles.navLink}>
+                <Link href="/sale" className={styles.navLink}>
                   On Sale
-                </NavigationMenu.Link>
+                </Link>
               </NavigationMenu.Item>
 
               <NavigationMenu.Item>
-                <NavigationMenu.Link className={styles.navLink}>
+                <Link href="/new-arrivals" className={styles.navLink}>
                   New Arrivals
-                </NavigationMenu.Link>
+                </Link>
               </NavigationMenu.Item>
 
               <NavigationMenu.Item>
-                <NavigationMenu.Link className={styles.navLink}>
+                <Link href="/brands" className={styles.navLink}>
                   Brands
-                </NavigationMenu.Link>
+                </Link>
               </NavigationMenu.Item>
             </NavigationMenu.List>
           </NavigationMenu.Root>

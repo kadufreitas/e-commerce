@@ -1,5 +1,6 @@
-import { Hero } from '@/src/common/components';
-import { getAllProducts, TopSelling } from '@/src/product';
+import { getAllProducts } from '@/src/product';
+import { ProductsGrid } from '@/src/product/components';
+import { Box } from '@radix-ui/themes';
 
 export default async function Products() {
   const products = await getAllProducts({
@@ -11,9 +12,8 @@ export default async function Products() {
   }
 
   return (
-    <>
-      <Hero />
-      <TopSelling />
-    </>
+    <Box pt="9">
+      <ProductsGrid items={products} />
+    </Box>
   );
 }

@@ -18,6 +18,12 @@ export const productServices: ProductServices = {
     });
     return data.products;
   },
+  async getRecommendations(strategy) {
+    const { data } = await apiService.get('products/recommendations', {
+      params: { strategy },
+    });
+    return data.products;
+  },
   async create(product) {
     const { data } = await apiService.post('products', { product });
     return data.product;
